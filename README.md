@@ -1,12 +1,8 @@
-# Sign In with Worldcoin using NextAuth.js
+# Minikit Starter Template
 
 ## Overview
 
-NextAuth.js is a complete open-source authentication solution.
-
-This is an example application that shows how `next-auth` can be used to implement Sign In with Worldcoin.
-
-Go to [NextAuth's documentation](https://next-auth.js.org) and [Worldcoin's Sign In documentation](https://docs.worldcoin.org/quick-start/sign-in) for more information and documentation.
+This is an example that you can use with minikit installed and Sign in with World ID configured
 
 ## Getting Started
 
@@ -18,15 +14,16 @@ Click the "Use this Template" button to create a new repository from this templa
 git clone your_repo_url
 cd your_repo_name
 pnpm i
+pnpm run dev
+ngrok http 3000 // this is recommended for test mode. 
 ```
 
 ### 2. Configure your app in the Worldcoin Developer Portal
 
-Create a new application in the [Worldcoin Developer Portal](https://developer.worldcoin.org/). Staging apps must use the [Worldcoin Simulator](https://simulator.worldcoin.org) for authentication, whereas production apps will use the [World App](https://worldcoin.org/download).
+Mini Apps should only be production apps in the dev portal
 
 Add your callback URLs:
-  - (staging apps only) `http://localhost:3000/api/auth/callback/worldcoin`
-  - `https://your-app-url.com/api/auth/callback/worldcoin`
+  - `https://ngrok-url-here/api/auth/callback/worldcoin`
 
 Note your Client ID and Client Secret for the next step.
 
@@ -64,21 +61,12 @@ For more information about setting up a database, please check out the following
 
 - Docs: [next-auth.js.org/adapters/overview](https://next-auth.js.org/adapters/overview)
 
-### 4. Start the application
+### 4. Test the application
 
-To run your site locally, use:
+Follow the docs [Minikit Docs](https://minikit-docs.vercel.app/mini-apps/quick-start/testing)
 
-```
-pnpm run dev
-```
-
-To run it in production mode, use:
-
-```
-pnpm run build
-pnpm run start
-```
+Make sure to fill out all values in the developer portal before saving otherwise you might have issues importing the app. Additionally, make sure to fill out the `integration_url` field in the developer portal with the URL of your app. You cannot use http urls so we recommend you use NGROK urls.
 
 ### 5. Preparing for Production
 
-Follow the [Deployment documentation](https://authjs.dev/guides/basics/deployment) or deploy the example instantly using [Vercel](https://vercel.com). Ensure you set your environment variables in your production environment as well.
+Once your app is ready feel free to submit it on the dev portal and we will test it. 
